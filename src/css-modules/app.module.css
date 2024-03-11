@@ -1,5 +1,49 @@
-.app {
+.container {
 	text-align: center;
-	max-width: 950px;
+	max-width: 350px;
 	margin: 0 auto;
+}
+
+.display {
+	/* box-sizing: border-box; */
+	display: block;
+	height: 20px;
+	width: 100%;
+	border: 1px solid blue;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.buttons {
+	display: flex;
+}
+
+.numbers {
+	box-sizing: border-box;
+	display: flex;
+	flex-wrap: wrap;
+	width: 50%;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 1px solid green;
+}
+
+.operators {
+	box-sizing: border-box;
+	width: 50%;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 1px solid red;
+}
+
+.item {
+	margin-right: 10px;
+}
+
+.btnNum {
+	padding: 10px;
+	border-radius: 50%;
+	border: none;
 }
