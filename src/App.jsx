@@ -71,7 +71,7 @@ export function App() {
 							return (
 								<li key={item} className={styles.item}>
 									<button
-										className={styles.btnNum}
+										className={`${styles.btnNum} ${styles.btn}`}
 										onClick={handleClickOnNmbBtn}
 									>
 										{item}
@@ -85,10 +85,10 @@ export function App() {
 						item => item === '-' || item === '=' || item === '+',
 					).map(item => {
 						return (
-							<li key={item} className={styles.item}>
+							<li key={item} className={styles.itemOper}>
 								{item === '=' ? (
 									<button
-										className={styles.btnNum}
+										className={`${styles.btnFunc} ${styles.btnEqual} ${styles.btn}`}
 										onClick={handleClickOnOperator}
 										disabled={operand2 ? false : true}
 									>
@@ -96,7 +96,7 @@ export function App() {
 									</button>
 								) : (
 									<button
-										className={styles.btnNum}
+										className={`${styles.btnFunc} ${styles.btn}`}
 										onClick={handleClickOnOperator}
 									>
 										{item}
@@ -109,7 +109,7 @@ export function App() {
 			</div>
 			{NUMS.filter(item => item === 'C').map(item => {
 				return (
-					<button key={item} className={styles.reset} onClick={handleReset}>
+					<button key={item} className={`${styles.reset} ${styles.btn}`} onClick={handleReset}>
 						{item}
 					</button>
 				);
