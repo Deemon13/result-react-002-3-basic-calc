@@ -14,7 +14,10 @@ export function App() {
 	const handleClickOnNmbBtn = event => {
 		isCalculating = setIsCalculating(true);
 		if (!operator) {
-			operand1 = setOperand1(Number(operand1 + event.target.textContent));
+			operand1 =
+				operand1 === undefined
+					? setOperand1(Number('' + event.target.textContent))
+					: setOperand1(Number(operand1 + event.target.textContent));
 		}
 
 		if (operator) {
@@ -59,7 +62,7 @@ export function App() {
 	return (
 		<div className={styles.container}>
 			<p
-				className={`${styles.display}  ${isCalculating ? styles.white : styles.green}`}
+				className={`${styles.display}  ${isCalculating ? styles.white : styles.green} ${operand1 || operand1 === 0 ? '' : styles.inactive}`}
 			>
 				{isResult}
 			</p>
@@ -90,7 +93,9 @@ export function App() {
 									<button
 										className={`${styles.btnFunc} ${styles.btnEqual} ${styles.btn}`}
 										onClick={handleClickOnOperator}
-										disabled={operand2 ? false : true}
+										disabled={
+											operand2 || operand2 === 0 ? false : true
+										}
 									>
 										{item}
 									</button>
@@ -98,6 +103,9 @@ export function App() {
 									<button
 										className={`${styles.btnFunc} ${styles.btn}`}
 										onClick={handleClickOnOperator}
+										disabled={
+											operand1 || operand1 === 0 ? false : true
+										}
 									>
 										{item}
 									</button>
@@ -109,7 +117,11 @@ export function App() {
 			</div>
 			{NUMS.filter(item => item === 'C').map(item => {
 				return (
-					<button key={item} className={`${styles.reset} ${styles.btn}`} onClick={handleReset}>
+					<button
+						key={item}
+						className={`${styles.reset} ${styles.btn}`}
+						onClick={handleReset}
+					>
 						{item}
 					</button>
 				);
