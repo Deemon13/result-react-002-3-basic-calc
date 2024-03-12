@@ -61,6 +61,9 @@ export function App() {
 
 	return (
 		<div className={styles.container}>
+			<h1 className={styles.title}>
+				This is a simple app for adding/subtracting integers
+			</h1>
 			<p
 				className={`${styles.display}  ${isCalculating ? styles.white : styles.green} ${operand1 || operand1 === 0 ? '' : styles.inactive}`}
 			>
@@ -126,6 +129,16 @@ export function App() {
 					</button>
 				);
 			})}
+			<p className={styles.signature}>
+				made by{' '}
+				<a
+					href="https://github.com/Deemon13"
+					target="blank"
+					className={styles.profile}
+				>
+					Deemon
+				</a>
+			</p>
 		</div>
 	);
 }

@@ -10,6 +10,12 @@
 	border-radius: 10px;
 }
 
+.title {
+	margin: 0 0 20px;
+	font-size: 24px;
+	color: #ffffff;
+}
+
 .display {
 	height: 40px;
 	margin-bottom: 20px;
@@ -130,6 +136,24 @@
 }
 
 .reset {
+	margin-bottom: 10px;
 	display: block;
 	width: 100%;
+}
+
+.signature {
+	margin: 0;
+	text-align: right;
+	color: #ffffff;
+}
+
+.profile {
+	text-decoration: none;
+	color: #ffffff;
+
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profile:hover {
+	color: #00ff00;
 }
