@@ -47,21 +47,22 @@ export function App() {
 	};
 
 	let isResult = !result ? (
-		<p className={`${styles.display}  ${isCalculating ? styles.red : styles.green}`}>
+		<>
 			{operand1}
 			{operator}
 			{operand2}
-		</p>
+		</>
 	) : (
-		<p className={`${styles.display} ${isCalculating ? styles.red : styles.green}`}>
-			{result}
-		</p>
+		<>{result}</>
 	);
 
 	return (
 		<div className={styles.container}>
-			{' '}
-			{isResult}
+			<p
+				className={`${styles.display}  ${isCalculating ? styles.white : styles.green}`}
+			>
+				{isResult}
+			</p>
 			<div className={styles.buttons}>
 				<ul className={styles.numbers}>
 					{NUMS.filter(item => Number(item) || Number(item) === 0)
