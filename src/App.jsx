@@ -11,25 +11,25 @@ export function App() {
 	let [isCalculating, setIsCalculating] = useState(true);
 	let result = null;
 
-	const handleClickOnNmbBtn = event => {
+	const handleClickOnNmbBtn = value => {
 		isCalculating = setIsCalculating(true);
 		if (!operator) {
 			operand1 =
 				operand1 === undefined
-					? setOperand1(Number('' + event.target.textContent))
-					: setOperand1(Number(operand1 + event.target.textContent));
+					? setOperand1(Number('' + value))
+					: setOperand1(Number(operand1 + value));
 		}
 
 		if (operator) {
-			operand2 = setOperand2(Number(operand2 + event.target.textContent));
+			operand2 = setOperand2(Number(operand2 + value));
 		}
 	};
 
-	const handleClickOnOperator = event => {
-		if (event.target.textContent === '+' || event.target.textContent === '-') {
-			operator = setOperator(event.target.textContent);
+	const handleClickOnOperator = value => {
+		if (value === '+' || value === '-') {
+			operator = setOperator(value);
 			isCalculating = setIsCalculating(true);
-		} else if (event.target.textContent === '=') {
+		} else if (value === '=') {
 			isCalculating = setIsCalculating(false);
 			result =
 				operator === '+'
@@ -78,7 +78,7 @@ export function App() {
 								<li key={item} className={styles.item}>
 									<button
 										className={`${styles.btnNum} ${styles.btn}`}
-										onClick={handleClickOnNmbBtn}
+										onClick={() => handleClickOnNmbBtn(item)}
 									>
 										{item}
 									</button>
@@ -95,7 +95,7 @@ export function App() {
 								{item === '=' ? (
 									<button
 										className={`${styles.btnFunc} ${styles.btnEqual} ${styles.btn}`}
-										onClick={handleClickOnOperator}
+										onClick={() => handleClickOnOperator(item)}
 										disabled={
 											operand2 || operand2 === 0 ? false : true
 										}
@@ -105,7 +105,7 @@ export function App() {
 								) : (
 									<button
 										className={`${styles.btnFunc} ${styles.btn}`}
-										onClick={handleClickOnOperator}
+										onClick={() => handleClickOnOperator(item)}
 										disabled={
 											operand1 || operand1 === 0 ? false : true
 										}
